@@ -23,7 +23,7 @@ export const sendContact = async (req, res) => {
   if (process.env.SMTP_USER) {
     try {
       await transporter.sendMail({
-        from: `"RideNow Contact" <${process.env.SMTP_USER}>`,
+        from: `"RideNow Contact" <${process.env.SENDER_EMAIL || process.env.SMTP_USER}>`,
         to: process.env.CONTACT_EMAIL,
         subject: `Nouveau message de ${name}`,
         html: `

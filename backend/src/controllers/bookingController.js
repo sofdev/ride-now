@@ -38,7 +38,7 @@ const sendConfirmationEmail = async (booking) => {
 
   // 1. Email de confirmation au client
   await transporter.sendMail({
-    from: `"RideNow" <${process.env.SMTP_USER}>`,
+    from: `"RideNow" <${process.env.SENDER_EMAIL || process.env.SMTP_USER}>`,
     to: booking.email,
     subject: `Confirmation de réservation #${ref}`,
     html: `
@@ -71,7 +71,7 @@ const sendConfirmationEmail = async (booking) => {
   // 2. Notification au gérant
   if (!process.env.CONTACT_EMAIL) return;
   await transporter.sendMail({
-    from: `"RideNow" <${process.env.SMTP_USER}>`,
+    from: `"RideNow" <${process.env.SENDER_EMAIL || process.env.SMTP_USER}>`,
     to: process.env.CONTACT_EMAIL,
     subject: `🚗 Nouvelle réservation #${ref} — ${booking.firstName} ${booking.lastName}`,
     html: `

@@ -20,7 +20,7 @@ const sendThankYouEmail = async (booking) => {
   const reviewUrl = process.env.GOOGLE_REVIEW_URL || 'https://g.page/r/VOTRE_PLACE_ID/review';
   try {
     await transporter.sendMail({
-      from: `"RideNow" <${process.env.SMTP_USER}>`,
+      from: `"RideNow" <${process.env.SENDER_EMAIL || process.env.SMTP_USER}>`,
       to: booking.userEmail,
       subject: `Merci pour votre course RideNow — Référence #${booking.reference}`,
       html: `
@@ -59,7 +59,7 @@ const sendCancellationEmail = async (booking, fee) => {
   if (!process.env.SMTP_USER || !booking.userEmail) return;
   try {
     await transporter.sendMail({
-      from: `"RideNow" <${process.env.SMTP_USER}>`,
+      from: `"RideNow" <${process.env.SENDER_EMAIL || process.env.SMTP_USER}>`,
       to: booking.userEmail,
       subject: `Annulation de votre réservation #${booking.reference}`,
       html: `
