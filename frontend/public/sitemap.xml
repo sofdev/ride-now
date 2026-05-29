@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml">
+
+  <url>
+    <loc>https://ridenow.fr/</loc>
+    <lastmod>2026-05-28</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://ridenow.fr/"/>
+  </url>
+
+  <url>
+    <loc>https://ridenow.fr/reservation</loc>
+    <lastmod>2026-05-28</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://ridenow.fr/reservation"/>
+  </url>
+
+  <url>
+    <loc>https://ridenow.fr/transfert-cdg-paris</loc>
+    <lastmod>2026-05-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://ridenow.fr/transfert-cdg-paris"/>
+  </url>
+
+  <url>
+    <loc>https://ridenow.fr/chauffeur-prive-orly</loc>
+    <lastmod>2026-05-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://ridenow.fr/chauffeur-prive-orly"/>
+  </url>
+
+  <url>
+    <loc>https://ridenow.fr/van-disneyland</loc>
+    <lastmod>2026-05-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://ridenow.fr/van-disneyland"/>
+  </url>
+
+  <url>
+    <loc>https://ridenow.fr/chauffeur-affaires-la-defense</loc>
+    <lastmod>2026-05-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://ridenow.fr/chauffeur-affaires-la-defense"/>
+  </url>
+
+  <url>
+    <loc>https://ridenow.fr/services</loc>
+    <lastmod>2026-05-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://ridenow.fr/services"/>
+  </url>
+
+  <url>
+    <loc>https://ridenow.fr/contact</loc>
+    <lastmod>2026-05-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://ridenow.fr/contact"/>
+  </url>
+
+  <url>
+    <loc>https://ridenow.fr/faq</loc>
+    <lastmod>2026-05-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://ridenow.fr/faq"/>
+  </url>
+
+  <url>
+    <loc>https://ridenow.fr/mentions</loc>
+    <lastmod>2026-05-28</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.2</priority>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://ridenow.fr/mentions"/>
+  </url>
+
+  <url>
+    <loc>https://ridenow.fr/cgv</loc>
+    <lastmod>2026-05-28</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.2</priority>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://ridenow.fr/cgv"/>
+  </url>
+
+</urlset>

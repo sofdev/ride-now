@@ -1,0 +1,10 @@
+User-agent: *
+Allow: /
+
+Disallow: /profil
+Disallow: /mes-trajets
+Disallow: /parametres
+Disallow: /facture/
+Disallow: /api/
+
+Sitemap: https://ridenow.fr/sitemap.xml

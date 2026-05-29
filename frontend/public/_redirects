@@ -1,0 +1,5 @@
+# Netlify redirects — SPA fallback + HTTPS redirect
+# Redirect HTTP to HTTPS (Netlify handles this automatically in settings)
+
+# SPA fallback — all routes serve index.html
+/*    /index.html   200

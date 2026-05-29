@@ -1,0 +1,129 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+
+    <!-- Primary meta (overridden per-page by react-helmet-async) -->
+    <title>RideNow — Chauffeur VTC Premium Paris & Île-de-France</title>
+    <meta name="description" content="RideNow, votre chauffeur VTC premium à Paris. Transferts aéroport CDG, Orly, Disneyland, hôtels de luxe. Réservation en ligne ou WhatsApp, prix fixe garanti." />
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href="https://ridenow.fr/" />
+
+    <!-- Open Graph -->
+    <meta property="og:type"        content="website" />
+    <meta property="og:site_name"   content="RideNow" />
+    <meta property="og:title"       content="RideNow — Chauffeur VTC Premium Paris" />
+    <meta property="og:description" content="Transferts aéroport, Disneyland, hôtels de luxe. Prix fixe, chauffeurs certifiés, disponible 24h/24." />
+    <meta property="og:url"         content="https://ridenow.fr/" />
+    <meta property="og:image"       content="https://ridenow.fr/og-image.jpg" />
+    <meta property="og:image:width"  content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:locale"      content="fr_FR" />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card"        content="summary_large_image" />
+    <meta name="twitter:title"       content="RideNow — Chauffeur VTC Premium Paris" />
+    <meta name="twitter:description" content="Transferts aéroport, Disneyland, hôtels de luxe. Prix fixe garanti, réservation en ligne." />
+    <meta name="twitter:image"       content="https://ridenow.fr/og-image.jpg" />
+
+    <!-- Theme color (mobile browser bar) -->
+    <meta name="theme-color" content="#0066FF" />
+    <meta name="msapplication-TileColor" content="#0066FF" />
+
+    <!-- Preconnect for Unsplash images -->
+    <link rel="preconnect" href="https://images.unsplash.com" />
+    <link rel="dns-prefetch" href="https://images.unsplash.com" />
+
+    <!-- Preconnect for Google Maps (loaded on demand) -->
+    <link rel="preconnect" href="https://maps.googleapis.com" />
+    <link rel="preconnect" href="https://maps.gstatic.com" crossorigin />
+
+    <!-- Preload hero image (LCP) -->
+    <link
+      rel="preload"
+      href="https://images.unsplash.com/photo-1601362840469-51e4d8d58785?w=1920&q=80"
+      as="image"
+      fetchpriority="high"
+    />
+
+    <!-- JSON-LD Structured Data — LocalBusiness -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "LocalBusiness",
+      "@id": "https://ridenow.fr",
+      "name": "RideNow",
+      "description": "Service de chauffeur VTC premium à Paris et en Île-de-France. Transferts aéroport, Disneyland, hôtels de luxe et lieux touristiques.",
+      "url": "https://ridenow.fr",
+      "telephone": "+33612345678",
+      "email": "contact@ridenow.fr",
+      "image": "https://ridenow.fr/og-image.jpg",
+      "priceRange": "€€",
+      "currenciesAccepted": "EUR",
+      "paymentAccepted": "Cash, Credit Card",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Paris",
+        "addressRegion": "Île-de-France",
+        "postalCode": "75001",
+        "addressCountry": "FR"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": 48.8566,
+        "longitude": 2.3522
+      },
+      "openingHoursSpecification": [{
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],
+        "opens": "00:00",
+        "closes": "23:59"
+      }],
+      "areaServed": {
+        "@type": "AdministrativeArea",
+        "name": "Île-de-France"
+      },
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Services VTC",
+        "itemListElement": [
+          {
+            "@type": "Offer",
+            "itemOffered": { "@type": "Service", "name": "Transfert Aéroport CDG" },
+            "price": "65",
+            "priceCurrency": "EUR"
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": { "@type": "Service", "name": "Transfert Aéroport Orly" },
+            "price": "55",
+            "priceCurrency": "EUR"
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": { "@type": "Service", "name": "Transfert Disneyland Paris" },
+            "price": "75",
+            "priceCurrency": "EUR"
+          }
+        ]
+      },
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "4.9",
+        "reviewCount": "127",
+        "bestRating": "5"
+      }
+    }
+    </script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.jsx"></script>
+  </body>
+</html>
