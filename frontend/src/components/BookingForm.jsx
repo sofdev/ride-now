@@ -290,6 +290,14 @@ export default function BookingForm() {
     const destLat   = dropoffPlace.geometry.location.lat();
     const destLng   = dropoffPlace.geometry.location.lng();
 
+    // Même adresse → prix test 1€
+    if (originLat === destLat && originLng === destLng) {
+      setDistanceKm(0.001);
+      setDurationTxt('0 min');
+      setRouteLoading(false);
+      return;
+    }
+
     api.post('/api/directions', { originLat, originLng, destLat, destLng })
       .then(({ data }) => {
         setPolylinePath(decodePolyline(data.encodedPolyline));
