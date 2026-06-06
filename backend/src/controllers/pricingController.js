@@ -29,7 +29,7 @@ export const calculatePrice = (req, res) => {
   }
 
   const computePrice = (type) => {
-    if (distanceKm === 0) return 1;
+    if (distanceKm < 5) return 1;
     const r = RATES[type];
     if (distanceKm < 10) return r.short;
     if (distanceKm < 20) return r.short + (distanceKm - 10) * r.r2;
