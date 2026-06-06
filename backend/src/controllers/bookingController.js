@@ -10,7 +10,7 @@ dotenv.config({ path: resolve(__dirname, '../../.env') });
 
 console.log('[bookingController] RESEND_API_KEY:', process.env.RESEND_API_KEY ? 'SET' : 'NOT SET');
 
-const resend = new Resend(process.env.RESEND_API_KEY);
+const resend = new Resend(process.env.RESEND_API_KEY || 'placeholder');
 
 const VEHICLE_LABELS = {
   standard: 'Berline Standard',
