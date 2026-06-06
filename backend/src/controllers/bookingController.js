@@ -1,5 +1,5 @@
 import { v4 as uuidv4 } from 'uuid';
-import nodemailer from 'nodemailer';
+import { Resend } from 'resend';
 import dotenv from 'dotenv';
 import { readDb, writeDb } from '../storage/db.js';
 import { fileURLToPath } from 'url';
@@ -8,17 +8,9 @@ import { dirname, resolve } from 'path';
 const __dirname = dirname(fileURLToPath(import.meta.url));
 dotenv.config({ path: resolve(__dirname, '../../.env') });
 
-console.log('[bookingController] SMTP_USER:', process.env.SMTP_USER || 'NOT SET');
+console.log('[bookingController] RESEND_API_KEY:', process.env.RESEND_API_KEY ? 'SET' : 'NOT SET');
 
-const transporter = nodemailer.createTransport({
-  host: process.env.SMTP_HOST,
-  port: parseInt(process.env.SMTP_PORT || '587'),
-  secure: process.env.SMTP_SECURE === 'true',
-  auth: {
-    user: process.env.SMTP_USER,
-    pass: process.env.SMTP_PASS,
-  },
-});
+const resend = new Resend(process.env.RESEND_API_KEY);
 
 const VEHICLE_LABELS = {
   standard: 'Berline Standard',
@@ -28,17 +20,19 @@ const VEHICLE_LABELS = {
 };
 
 const sendConfirmationEmail = async (booking) => {
-  if (!process.env.SMTP_USER) {
-    console.warn('[email] SMTP_USER not set — skipping confirmation email');
+  if (!process.env.RESEND_API_KEY) {
+    console.warn('[email] RESEND_API_KEY not set — skipping confirmation email');
     return;
   }
   const ref = booking.reference || booking.id.slice(0, 8).toUpperCase();
   const vehicleLabel = VEHICLE_LABELS[booking.vehicleType] || booking.vehicleType;
   console.log(`[email] Sending confirmation to ${booking.email} (ref: ${ref})`);
 
+  const from = `RideNow <${process.env.SENDER_EMAIL || 'reservations@ride-now.fr'}>`;
+
   // 1. Email de confirmation au client
-  await transporter.sendMail({
-    from: `"RideNow" <${process.env.SENDER_EMAIL || process.env.SMTP_USER}>`,
+  const { error: err1 } = await resend.emails.send({
+    from,
     to: booking.email,
     subject: `Confirmation de réservation #${ref}`,
     html: `
@@ -66,14 +60,15 @@ const sendConfirmationEmail = async (booking) => {
     `,
   });
 
-  console.log(`[email] Confirmation sent to ${booking.email}`);
+  if (err1) console.error('[email] Confirmation error:', err1.message);
+  else console.log(`[email] Confirmation sent to ${booking.email}`);
 
   // 2. Notification au gérant
   if (!process.env.CONTACT_EMAIL) return;
-  await transporter.sendMail({
-    from: `"RideNow" <${process.env.SENDER_EMAIL || process.env.SMTP_USER}>`,
+  const { error: err2 } = await resend.emails.send({
+    from,
     to: process.env.CONTACT_EMAIL,
-    subject: `🚗 Nouvelle réservation #${ref} — ${booking.firstName} ${booking.lastName}`,
+    subject: `Nouvelle réservation #${ref} — ${booking.firstName} ${booking.lastName}`,
     html: `
       <div style="font-family:Arial,sans-serif;max-width:600px;margin:0 auto;">
         <div style="background:#1e293b;padding:20px 30px;">
@@ -97,7 +92,8 @@ const sendConfirmationEmail = async (booking) => {
       </div>
     `,
   });
-  console.log(`[email] Admin notification sent to ${process.env.CONTACT_EMAIL}`);
+  if (err2) console.error('[email] Admin notification error:', err2.message);
+  else console.log(`[email] Admin notification sent to ${process.env.CONTACT_EMAIL}`);
 };
 
 export const createBooking = async (req, res) => {
