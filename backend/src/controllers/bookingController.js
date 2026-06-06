@@ -9,6 +9,7 @@ const __dirname = dirname(fileURLToPath(import.meta.url));
 dotenv.config({ path: resolve(__dirname, '../../.env'), override: false });
 
 console.log('[bookingController] RESEND_API_KEY:', process.env.RESEND_API_KEY ? 'SET' : 'NOT SET');
+console.log('[bookingController] RESEND value:', process.env.RESEND_API_KEY?.slice(0, 8) || 'undefined');
 
 const resend = new Resend(process.env.RESEND_API_KEY || 'placeholder');
 
