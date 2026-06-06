@@ -1,7 +1,7 @@
 const RATES = {
-  standard: { short: 35, r2: 2.0, r3: 1.5 },
-  premium:  { short: 45, r2: 2.5, r3: 2.0 },
-  van:      { short: 60, r2: 3.0, r3: 2.5 },
+  standard: { short: 1, r2: 2.0, r3: 1.5 },
+  premium:  { short: 1, r2: 2.5, r3: 2.0 },
+  van:      { short: 1, r2: 3.0, r3: 2.5 },
 };
 
 const FIXED_PRICES = {
